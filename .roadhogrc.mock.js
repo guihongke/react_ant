@@ -137,4 +137,10 @@ const proxy = {
   },
 };
 
-export default (noProxy ? {} : delay(proxy, 1000));
+const apiurl = 'http://localhost:8081/';
+export default (noProxy
+  ? {
+      'GET /web/(.*)': apiurl + '/web/',
+      'POST /web/(.*)': apiurl + '/web/',
+    }
+  : delay(proxy, 1000));
