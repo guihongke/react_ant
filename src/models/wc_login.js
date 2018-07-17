@@ -1,13 +1,13 @@
 import { routerRedux } from 'dva/router';
 import { stringify } from 'qs';
-import { login } from '../../services/wencheng/login';
-import { logout } from '../../services/wencheng/login';
-import { setAuthority } from '../../utils/authority';
-import { reloadAuthorized } from '../../utils/Authorized';
-import { getPageQuery } from '../../utils/utils';
+import { login } from '../services/wc_login';
+import { logout } from '../services/wc_login';
+import { setAuthority } from '../utils/authority';
+import { reloadAuthorized } from '../utils/Authorized';
+import { getPageQuery } from '../utils/utils';
 
 export default {
-  namespace: 'wencheng_login',
+  namespace: 'wc_login',
 
   state: {
     status: undefined,

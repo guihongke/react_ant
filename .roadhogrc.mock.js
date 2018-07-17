@@ -9,7 +9,6 @@ import { format, delay } from 'roadhog-api-doc';
 
 // 是否禁用代理
 const noProxy = process.env.NO_PROXY === 'true';
-
 // 代码中会兼容本地 service mock 以及部署站点的静态数据
 const proxy = {
   // 支持值为 Object 和 Array
@@ -137,10 +136,10 @@ const proxy = {
   },
 };
 
-const apiurl = 'http://localhost:8081/';
+const proxyTarget = 'http://localhost:8081/web/';
 export default (noProxy
   ? {
-      'GET /web/(.*)': apiurl + '/web/',
-      'POST /web/(.*)': apiurl + '/web/',
+      'GET /web/(.*)': proxyTarget,
+      'POST /web/(.*)': proxyTarget,
     }
   : delay(proxy, 1000));

@@ -85,7 +85,6 @@ export const getRouterData = app => {
       component: dynamicWrapper(app, ['list'], () => import('../routes/BusLine/Place')),
     },
 
-
     '/dashboard/analysis': {
       component: dynamicWrapper(app, ['chart'], () => import('../routes/Dashboard/Analysis')),
     },
@@ -174,7 +173,7 @@ export const getRouterData = app => {
       component: dynamicWrapper(app, [], () => import('../layouts/UserLayout')),
     },
     '/user/login': {
-      component: dynamicWrapper(app, ['login'], () => import('../routes/User/Login')),
+      component: dynamicWrapper(app, ['wc_login'], () => import('../routes/User/Login')),
     },
     '/user/register': {
       component: dynamicWrapper(app, ['register'], () => import('../routes/User/Register')),

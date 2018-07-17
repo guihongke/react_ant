@@ -1,8 +1,8 @@
 import { stringify } from 'qs';
-import request from '../../utils/request';
+import request from '../utils/request';
 
 export async function login(params) {
-  return request('/login', {
+  return request('web/login', {
     method: 'POST',
     body: {
       ...params,
@@ -12,5 +12,5 @@ export async function login(params) {
 }
 
 export async function logout() {
-  return request('/logout');
+  return request('web/logout');
 }
