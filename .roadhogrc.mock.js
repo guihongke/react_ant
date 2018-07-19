@@ -74,28 +74,28 @@ const proxy = {
     const { password, userName, type } = req.body;
     if (password === '888888' && userName === 'admin') {
       res.send({
-        status: 'ok',
+        resultCode: 'S',
         type,
-        currentAuthority: 'admin',
+        role: 'admin',
       });
       return;
     }
     if (password === '123456' && userName === 'user') {
       res.send({
-        status: 'ok',
+        resultCode: 'S',
         type,
-        currentAuthority: 'user',
+        role: 'user',
       });
       return;
     }
     res.send({
-      status: 'error',
+      resultCode: 'F',
       type,
-      currentAuthority: 'guest',
+      role: 'guest',
     });
   },
   'POST /api/register': (req, res) => {
-    res.send({ status: 'ok', currentAuthority: 'user' });
+    res.send({ status: 'ok', role: 'user' });
   },
   'GET /api/notices': getNotices,
   'GET /api/500': (req, res) => {

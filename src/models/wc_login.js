@@ -3,6 +3,7 @@ import { stringify } from 'qs';
 import { login } from '../services/wc_login';
 import { logout } from '../services/wc_login';
 import { setAuthority } from '../utils/authority';
+import { setToken } from '../utils/authority';
 import { reloadAuthorized } from '../utils/Authorized';
 import { getPageQuery } from '../utils/utils';
 
@@ -21,7 +22,7 @@ export default {
         payload: response,
       });
       // Login successfully
-      if (response.status === 'ok') {
+      if (response.resultCode === 'S') {
         reloadAuthorized();
         const urlParams = new URL(window.location.href);
         const params = getPageQuery();
@@ -63,7 +64,7 @@ export default {
 
   reducers: {
     changeLoginStatus(state, { payload }) {
-      setAuthority(payload.currentAuthority);
+      setAuthority(payload.role);
       return {
         ...state,
         status: payload.status,
