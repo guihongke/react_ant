@@ -64,7 +64,7 @@ export default {
 
   reducers: {
     changeLoginStatus(state, { payload }) {
-      setAuthority(payload.role);
+      setAuthority("admin");
       return {
         ...state,
         status: payload.status,
